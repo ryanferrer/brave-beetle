@@ -16,7 +16,7 @@ champions and load outs. To prevent cheating and allow anti-win counter measures
 
 ## Core features:
 
-Abiding by CrUD:
+###### Abiding by CrUD:
 - Create a session for participating players
   - Create loadouts and champion loadouts
 - Read match history
@@ -25,15 +25,6 @@ Abiding by CrUD:
 - Update an existing players W/L ratio if the match was valid
 - Delete sessions when a match is completed.
 
-## Works in progress
+## track my progress here!
 
-- [ ] Decide on what technologies to use
-- [ ] Develop full stack commmunications
-  - [ ] Develop RESTful API routes
-- [ ] Interface with RIOT GAMES match history and summoner APIs
-- [ ] Develop UI / UX
-
-## While I work on this project, I need to:
-
-- Record my works in a personal Trello
-[ Insert Trello Link Here ]
+https://trello.com/b/j6dz8JBv/project-brave-beetle
