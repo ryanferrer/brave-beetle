@@ -16,7 +16,7 @@ champions and load outs. To prevent cheating and allow anti-win counter measures
 
 ## Core features:
 
-####### Abiding by CrUD:
+###### Abiding by CrUD:
 - Create a session for participating players
   - Create loadouts and champion loadouts
 - Read match history
@@ -33,7 +33,7 @@ champions and load outs. To prevent cheating and allow anti-win counter measures
 - [ ] Interface with RIOT GAMES match history and summoner APIs
 - [ ] Develop UI / UX
 
-####### While I work on this project, I need to:
+###### While I work on this project, I need to:
 
 - Record my works in a personal Trello
 [ Insert Trello Link Here ]
