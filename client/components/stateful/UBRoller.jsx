@@ -5,9 +5,6 @@ class UBRoller extends Component {
     super(props);
 
     this.state = {
-      champion: null,
-      boots: null,
-      equips: null,
       showCard: false
     };
   }
@@ -17,22 +14,14 @@ class UBRoller extends Component {
       fetch('/champion'),
       fetch('/boots'),
       fetch('/equips')
-    ]).then(([champion, boots, equips]) => {
-      return [champion.json(), boots.json(), equips.json()]
-    }).then(([champion, boots, equips]) => {
-      console.log(champion, boots, equips);
-    });
-
-    // fetch('/champion')
-    // .then(data => {
-    //   return JSON.stringify(data.json());
-    // })
-    // .then(data => {
-    //   this.setState({
-    //     champion: data,
-    //     showCard: true
-    //   }, this.render)
-    // });
+    ])
+    .then(([champion, boots, equips]) => Promise.all([champion.json(), boots.json(), equips.json()]))
+    .then(([champion, boots, equips]) => this.setState({
+      champion,
+      boots,
+      equips,
+      showCard: true
+    }))
   }
 
   reroll(){
@@ -40,22 +29,26 @@ class UBRoller extends Component {
   }
 
   render(){
-    if (this.state.showCard === false) {
-      return (
-        <>
-          <button onClick={() => this.reroll()}>Click to Roll</button>
-        </>
-      )
-    }
-
-    if (this.state.showCard === true) {
+    if (this.state.showCard){
       return (
         <>
           <div>Here's your loadout! GL HF!</div>
-          <div>{this.state.champion}</div>
-          <div>{this.state.boots}</div>
-          <div>{this.state.equips}</div>
+          <div>{this.state.champion.id}</div>
+          <div>{this.state.boots.name}</div>
+          {this.state.equips.map((item, key) => {
+            return (
+              <> 
+                <div id={key}>{item.name}</div>
+              </>
+            )
+          })}
           <button onClick={() => this.reroll()}>Reroll</button>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <div>Loading...</div>
         </>
       )
     }
