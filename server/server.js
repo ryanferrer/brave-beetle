@@ -3,12 +3,6 @@ const kayn = require('../database/kayn.js')
 const app = express();
 const port = 4444;
 
-app.get('/items', (req, res) => {
-  kayn.getAllItems((data) => {
-    res.send(data);
-  });
-})
-
 app.get('/equips', (req, res) => {
   // Kayn method to get 5 items that are NOT boots
   kayn.getEquips((data) => {
@@ -22,11 +16,8 @@ app.get('/boots', (req, res) => {
   })
 })
 
-
-app.get('/champions', (req, res) => {
-  kayn.getAllChampions((data) => {
-    // After getting the data, we need to cache it into a JSON
-    // Or store it directly into MongoDB
+app.get('/champion', (req, res) => {
+  kayn.getAChampion((data) => {
     res.send(data);
   })
 })

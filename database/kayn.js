@@ -6,44 +6,8 @@ const fs = require('fs');
 const { Kayn, REGIONS } = require('kayn');
 const kayn = Kayn(process.env.RIOT_LOL_API_KEY)();
 
-// Move this to another js file later
-// const getLatestMatch = (name) => {
-//   kayn.Summoner.by.name(name)
-//     .then((data) => {
-//       console.log(data)
-//     })
-// }
-
-// getLatestMatch('l Ryden l');
-
-const getAllItems = (callback) => {
-  kayn.DDragon.Item.list()
-  .then((data) => {
-    console.log('I got you all the Items from Riots API!!');
-    callback(data);
-  });
-}
-
-const getAllChampions = (callback) => {
-  kayn.DDragon.Champion.list()
-  .then((data) => {
-      console.log('I got you all the champs from Riots API!');
-      callback(data);
-    })
-}
-
-const getItemByName = (name) => {
-  kayn.DDragon.Item.list()
-  .then(itemsList => {
-    return itemsList.data
-  })
-  .then(items => {
-    for (key in items) {
-      console.log(items[key].name);
-    }
-  })
-}
-
+// Randomly select 5 items that are NOT boots for player loadout
+  // Seems very brittle
 const getEquips = (callback) => {
   kayn.DDragon.Item.list()
   .then(itemsList => {
@@ -69,8 +33,8 @@ const getEquips = (callback) => {
   .then(data => callback(data));
 }
 
-// getEquips(console.log);
-
+// Randomly select 1 and only 1 pair of boots for player loadout
+  // Seems very brittle
 const getABoot = (callback) => {
   kayn.DDragon.Item.list()
   .then(itemsList => {
@@ -93,9 +57,33 @@ const getABoot = (callback) => {
   .catch(err => console.log(err));
 }
 
+// Randomly select 1 and only 1 champion for the player to lock in as
+const getAChampion = (callback) => {
+  kayn.DDragon.Champion.list()
+  .then(champsList => {
+    return champsList.data;
+  })
+  .then(champions => {
+    let champsArray = [];
+    for (key in champions){
+      champsArray.push(champions[key])
+    }
+    return champsArray;
+  })
+  .then(champsArray => {
+    let random = Math.floor(champsArray.length * Math.random());
+    return champsArray[random];
+  })
+  .then(champ => callback(champ));
+}
+
+//uncomment to test through terminal
+// getAChampion(console.log);
+// getABoot(console.log);
+// getEquips(console.log);
+
 module.exports = {
-  getAllChampions,
-  getAllItems,
+  getAChampion,
   getABoot,
   getEquips
 }
