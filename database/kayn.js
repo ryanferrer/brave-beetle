@@ -44,6 +44,33 @@ const getItemByName = (name) => {
   })
 }
 
+const getEquips = (callback) => {
+  kayn.DDragon.Item.list()
+  .then(itemsList => {
+    return itemsList.data;
+  })
+  .then(items => {
+    let equipsArray = [];
+    for (key in items){
+      if (!items[key].name.includes("Boots")){
+        equipsArray.push(items[key])
+      }
+    }
+    return equipsArray;
+  })
+  .then(equipsArray => {
+    let lockinEquips = [];
+    while (lockinEquips.length < 5){
+      let random = Math.floor(equipsArray.length * Math.random());
+      lockinEquips.push(equipsArray[random]);
+    }
+    return lockinEquips;
+  })
+  .then(data => callback(data));
+}
+
+// getEquips(console.log);
+
 const getABoot = (callback) => {
   kayn.DDragon.Item.list()
   .then(itemsList => {
@@ -70,4 +97,5 @@ module.exports = {
   getAllChampions,
   getAllItems,
   getABoot,
+  getEquips
 }

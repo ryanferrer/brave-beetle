@@ -11,6 +11,9 @@ app.get('/items', (req, res) => {
 
 app.get('/equips', (req, res) => {
   // Kayn method to get 5 items that are NOT boots
+  kayn.getEquips((data) => {
+    res.send(data);
+  })
 })
 
 app.get('/boots', (req, res) => {
