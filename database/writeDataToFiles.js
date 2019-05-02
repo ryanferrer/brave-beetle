@@ -5,17 +5,17 @@ const kayn = Kayn(process.env.RIOT_LOL_API_KEY)();
 
 const getAllItems = (callback) => {
   kayn.DDragon.Item.list()
-  .then((data) => {
+  .then((items) => {
     console.log('I got you all the Items from Riots API!!');
-    callback(JSON.stringify(data.data));
+    callback(JSON.stringify(items, null, 2));
   });
 }
 
 const getAllChampions = (callback) => {
   kayn.DDragon.Champion.list()
-  .then((data) => {
+  .then((champions) => {
       console.log('I got you all the champs from Riots API!');
-      callback(JSON.stringify(data.data));
+      callback(JSON.stringify(champions, null, 2));
     })
 }
 
@@ -36,6 +36,8 @@ const writeChampionsToFile = (championsData) => {
     }
   })
 }
+
+// cd into this files directory and node it to get JSON files from API requests
 
 getAllItems(writeItemsToFile);
 getAllChampions(writeChampionsToFile);

@@ -32,14 +32,42 @@ const getAllChampions = (callback) => {
     })
 }
 
-// const getItemByName = (name) => {
-//   kayn.DDragon.Item.list()
-//   .then(data => {
-//     data.fil
-//   })
-// }
+const getItemByName = (name) => {
+  kayn.DDragon.Item.list()
+  .then(itemsList => {
+    return itemsList.data
+  })
+  .then(items => {
+    for (key in items) {
+      console.log(items[key].name);
+    }
+  })
+}
+
+const getABoot = (callback) => {
+  kayn.DDragon.Item.list()
+  .then(itemsList => {
+    return itemsList.data;
+  })
+  .then(items => {
+    let bootsArray =[];
+    for (key in items){
+      if (items[key].name.includes("Boots") && !items[key].name.includes("Boots Of Speed")){
+        bootsArray.push(items[key]);
+      }
+    }
+    return bootsArray;
+  })
+  .then(bootsArray => {
+    let random = Math.floor(bootsArray.length * Math.random());
+    return bootsArray[random];
+  })
+  .then(boots => callback(boots))
+  .catch(err => console.log(err));
+}
 
 module.exports = {
   getAllChampions,
-  getAllItems
+  getAllItems,
+  getABoot,
 }

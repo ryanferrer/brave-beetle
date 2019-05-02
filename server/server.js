@@ -1,5 +1,5 @@
 const express = require('express');
-const kayn = require('../database/getAssetsFromRiot.js')
+const kayn = require('../database/kayn.js')
 const app = express();
 const port = 4444;
 
@@ -8,6 +8,17 @@ app.get('/items', (req, res) => {
     res.send(data);
   });
 })
+
+app.get('/equips', (req, res) => {
+  // Kayn method to get 5 items that are NOT boots
+})
+
+app.get('/boots', (req, res) => {
+  kayn.getABoot((data) => {
+    res.send(data);
+  })
+})
+
 
 app.get('/champions', (req, res) => {
   kayn.getAllChampions((data) => {
