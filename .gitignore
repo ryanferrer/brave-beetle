@@ -3,4 +3,4 @@ dist
 package-lock.json
 temp_assets
 .env
-champions.json
+database/output
