@@ -1,0 +1,41 @@
+{
+  "name": "brave-beetle",
+  "version": "1.0.0",
+  "description": "## What this app is / will be A leader board that tracks the Win/Loss ratios of summoners that play ultimate bravery.",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode development",
+    "server": "nodemon ./server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryanferrer/brave-beetle.git"
+  },
+  "author": "Ryden_Soko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ryanferrer/brave-beetle/issues"
+  },
+  "homepage": "https://github.com/ryanferrer/brave-beetle#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "kayn": "^0.9.8",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "babel-preset-minify": "^0.5.0",
+    "dotenv": "^7.0.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "mongoose": "^5.5.5",
+    "nodemon": "^1.19.0",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.1"
+  }
+}

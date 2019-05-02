@@ -1,0 +1,6 @@
+node_modules
+dist
+package-lock.json
+temp_assets
+.env
+database/output
