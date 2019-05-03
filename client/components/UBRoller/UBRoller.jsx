@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
+import ChampionWindow from './ChampionWindow.jsx';
+import LoadoutWindow from './LoadoutWindow.jsx';
+import RerollButton from './RerollButton.jsx';
 
 class UBRoller extends Component {
   constructor(props){
     super(props);
 
     this.state = {
-      showCard: false
+      loadoutIsReady: false
     };
   }
 
   componentDidMount(){
+    // should convert this into it's own method later!
     Promise.all([
       fetch('/champion'),
       fetch('/boots'),
@@ -20,7 +24,7 @@ class UBRoller extends Component {
       champion,
       boots,
       equips,
-      showCard: true
+      loadoutIsReady: true
     }))
   }
 
@@ -29,20 +33,13 @@ class UBRoller extends Component {
   }
 
   render(){
-    if (this.state.showCard){
+    if (this.state.loadoutIsReady){
       return (
         <>
           <div>Here's your loadout! GL HF!</div>
-          <div>{this.state.champion.id}</div>
-          <div>{this.state.boots.name}</div>
-          {this.state.equips.map((item, key) => {
-            return (
-              <> 
-                <div id={key}>{item.name}</div>
-              </>
-            )
-          })}
-          <button onClick={() => this.reroll()}>Reroll</button>
+          <ChampionWindow champion={this.state.champion}/>
+          <LoadoutWindow  boots={this.state.boots} equips={this.state.equips}/>
+          <RerollButton/>
         </>
       );
     } else {
