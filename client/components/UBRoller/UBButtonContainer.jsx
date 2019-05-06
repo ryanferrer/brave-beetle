@@ -5,7 +5,7 @@ import LockInButton from './LockInButton.jsx';
 const UBButtonContainer = (props) => {
   return (
     <div id="UB-Button-Container">
-      <RerollButton reroll={props.reroll}/>
+      <RerollButton reroll={props.reroll} rerolls={props.rerolls}/>
       <LockInButton/> 
     </div>
   );

@@ -27,9 +27,14 @@ champions and load outs. To prevent cheating and allow anti-win counter measures
     - That match's stats: 
       - Both players are in that match
       - Both players followed their randomly assigned loadouts
-      - 
 - Delete sessions when a match is completed.
 
-## track my progress here!
+## Track my progress here!
 
 https://trello.com/b/j6dz8JBv/project-brave-beetle
+
+## Follow me on Twitter for updates as well!
+
+https://twitter.com/ryden_exe
+
+## Changelog (Coming soon!)

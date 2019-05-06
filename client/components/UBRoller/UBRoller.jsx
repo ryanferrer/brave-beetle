@@ -35,15 +35,12 @@ class UBRoller extends Component {
 
   reroll(){
     let rerolls = this.state.rerolls;
-    console.log(rerolls);
 
     if (rerolls > 0 && rerolls <= 2){
       this.getLoadOut();
       this.setState({
         rerolls: this.state.rerolls - 1
       });
-    } else {
-      console.log('out of rerolls!');
     }
   }
 
@@ -56,7 +53,7 @@ class UBRoller extends Component {
             <ChampionWindow champion={this.state.champion}/>
             <LoadoutWindow  boots={this.state.boots} equips={this.state.equips}/>
           </div>
-            <UBButtonContainer reroll={this.reroll.bind(this)}/>
+            <UBButtonContainer reroll={this.reroll.bind(this)} rerolls={this.state.rerolls}/>
         </div>
       );
     } else {
