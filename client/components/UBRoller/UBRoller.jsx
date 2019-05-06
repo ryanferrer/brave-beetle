@@ -47,7 +47,7 @@ class UBRoller extends Component {
   render(){
     if (this.state.loadoutIsReady){
       return (
-        <div id='ub-roller' className="card">
+        <div id="ub-roller" className="card">
           <h1>Here's your loadout! GL HF!</h1>
           <div id="lol-container">
             <ChampionWindow champion={this.state.champion}/>
