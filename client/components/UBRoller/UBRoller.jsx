@@ -41,7 +41,7 @@ class UBRoller extends Component {
       this.setState({
         rerolls: this.state.rerolls - 1
       });
-    }
+    } 
   }
 
   render(){
