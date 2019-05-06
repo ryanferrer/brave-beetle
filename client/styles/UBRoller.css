@@ -1,0 +1,37 @@
+#ub-roller{
+  display: inline;
+}
+
+#lol-container{
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+#champion-window{
+  padding: 2px;
+}
+
+#loadout-window{
+  display: flex;
+  padding: 5px;
+}
+
+#boots-slot{
+  padding: 2px;
+}
+
+#equips-slot{
+  padding: 2px;
+}
+
+#equips{
+  display: flex;
+}
+
+#UB-Button-Container{
+  display: flex;
+}
+
+#UB-Button-Container > div{
+  padding: 2px;
+}

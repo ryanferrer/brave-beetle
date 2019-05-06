@@ -23,6 +23,11 @@ champions and load outs. To prevent cheating and allow anti-win counter measures
   - Read for matching loadouts as created by this app
   - Validate that the match abides to this app
 - Update an existing players W/L ratio if the match was valid
+  - A valid match is when 2 players agree to 1v1 in UB
+    - That match's stats: 
+      - Both players are in that match
+      - Both players followed their randomly assigned loadouts
+      - 
 - Delete sessions when a match is completed.
 
 ## track my progress here!

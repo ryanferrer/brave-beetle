@@ -1,19 +1,24 @@
 import React, { Component } from 'react';
 import ChampionWindow from './ChampionWindow.jsx';
 import LoadoutWindow from './LoadoutWindow.jsx';
-import RerollButton from './RerollButton.jsx';
+import UBButtonContainer from './UBButtonContainer.jsx'
+import UBstyler from '../../styles/UBRoller.css';
 
 class UBRoller extends Component {
   constructor(props){
     super(props);
 
     this.state = {
+      rerolls: 2,
       loadoutIsReady: false
     };
   }
 
   componentDidMount(){
-    // should convert this into it's own method later!
+    this.getLoadOut();
+  }
+
+  getLoadOut(){
     Promise.all([
       fetch('/champion'),
       fetch('/boots'),
@@ -29,18 +34,30 @@ class UBRoller extends Component {
   }
 
   reroll(){
-    this.componentDidMount();
+    let rerolls = this.state.rerolls;
+    console.log(rerolls);
+
+    if (rerolls > 0 && rerolls <= 2){
+      this.getLoadOut();
+      this.setState({
+        rerolls: this.state.rerolls - 1
+      });
+    } else {
+      console.log('out of rerolls!');
+    }
   }
 
   render(){
     if (this.state.loadoutIsReady){
       return (
-        <>
-          <div>Here's your loadout! GL HF!</div>
-          <ChampionWindow champion={this.state.champion}/>
-          <LoadoutWindow  boots={this.state.boots} equips={this.state.equips}/>
-          <RerollButton/>
-        </>
+        <div id='ub-roller' className="card">
+          <h1>Here's your loadout! GL HF!</h1>
+          <div id="lol-container">
+            <ChampionWindow champion={this.state.champion}/>
+            <LoadoutWindow  boots={this.state.boots} equips={this.state.equips}/>
+          </div>
+            <UBButtonContainer reroll={this.reroll.bind(this)}/>
+        </div>
       );
     } else {
       return (

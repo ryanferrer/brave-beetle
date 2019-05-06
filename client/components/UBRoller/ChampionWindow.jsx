@@ -8,7 +8,7 @@ const ChampionWindow = (props) => {
         <img src={`http://ddragon.leagueoflegends.com/cdn/${props.champion.version}/img/champion/${props.champion.id}.png`}/>
       </div>
 
-      <div id="champion-name">{props.champion.name}</div>
+      <h2 id="champion-name">{props.champion.name}</h2>
     </div>
   )
 }
