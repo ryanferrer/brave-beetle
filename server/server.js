@@ -3,6 +3,8 @@ const kayn = require('../database/kayn.js')
 const app = express();
 const port = 4444;
 
+app.use(express.static('dist'));
+
 app.get('/equips', (req, res) => {
   // Kayn method to get 5 items that are NOT boots
   kayn.getEquips((data) => {
@@ -22,6 +24,5 @@ app.get('/champion', (req, res) => {
   })
 })
 
-app.use(express.static('dist'));
 
 app.listen(port, () => console.log(`SCV Ready on ${port}!`));
