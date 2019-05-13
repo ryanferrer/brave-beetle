@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import ChampionWindow from './ChampionWindow.jsx';
 import LoadoutWindow from './LoadoutWindow.jsx';
 import UBButtonContainer from './UBButtonContainer.jsx'
-import UBstyler from '../../styles/UBRoller.css';
+import '../../styles/Kabuto/Kabuto.css';
 
-class UBRoller extends Component {
+class Kabuto extends Component {
   constructor(props){
     super(props);
 
@@ -66,4 +66,4 @@ class UBRoller extends Component {
   }
 }
 
-export default UBRoller;
+export default Kabuto;
