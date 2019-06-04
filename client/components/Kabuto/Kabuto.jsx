@@ -4,6 +4,9 @@ import LoadoutWindow from './LoadoutWindow.jsx';
 import UBButtonContainer from './UBButtonContainer.jsx'
 import '../../styles/Kabuto/Kabuto.css';
 
+const server = 'http://localhost'
+const port = 4444;
+
 class Kabuto extends Component {
   constructor(props){
     super(props);
@@ -20,9 +23,9 @@ class Kabuto extends Component {
 
   getLoadOut(){
     Promise.all([
-      fetch('/champion'),
-      fetch('/boots'),
-      fetch('/equips')
+      fetch(`${server}:${port}/champion`),
+      fetch(`${server}:${port}/boots`),
+      fetch(`${server}:${port}/equips`)
     ])
     .then(([champion, boots, equips]) => Promise.all([champion.json(), boots.json(), equips.json()]))
     .then(([champion, boots, equips]) => this.setState({

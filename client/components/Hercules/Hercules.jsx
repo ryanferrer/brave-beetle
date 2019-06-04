@@ -10,9 +10,10 @@ class Hercules extends Component{
   render(){
     return(
       <>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <a className="navbar-brand" href="#">Navbar</a>
-
+        <nav className="navbar navbar-expand-lg navbar-light bg-dark">
+          <a className="navbar-brand" href="#">Brave Beetle</a>
+          <button className="btn btn-primary">Log in</button>
+          <button className="btn btn-outline-primary">Sign up</button>
         </nav>
       </>
     )
